@@ -65,4 +65,19 @@ public class MyLinkedListTest {
                         myLinkedList.tail.equals(myThirdNode);
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void poppingLastElement() {
+        MyNode<Integer> myFirstNode = new MyNode<Integer>(56);
+        MyNode<Integer> mySecondNode = new MyNode<Integer>(30);
+        MyNode<Integer> myThirdNode = new MyNode<Integer>(70);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.addAtBottom(myFirstNode);
+        myLinkedList.addAtBottom(mySecondNode);
+        myLinkedList.addAtBottom(myThirdNode);
+        INode deletedNode = myLinkedList.popLast();
+
+        Assert.assertEquals(myThirdNode,deletedNode);
+
+    }
 }
