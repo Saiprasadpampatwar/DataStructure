@@ -7,7 +7,19 @@ public class MyLinkedList {
         this.tail = null;
     }
 
-    public void add(INode newNode) {
+    public void addAtBottom(INode newNode) {
+        if(this.head == null){
+            this.head = newNode;
+        }
+        if(this.tail == null){
+            this.tail = newNode;
+        }else {
+            this.tail.setNext(newNode);
+            this.tail = newNode;
+        }
+    }
+
+    public void addAtTop(INode newNode){
         if(this.tail == null){
             this.tail = newNode;
         }
