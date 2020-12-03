@@ -76,8 +76,22 @@ public class MyLinkedListTest {
         myLinkedList.addAtBottom(mySecondNode);
         myLinkedList.addAtBottom(myThirdNode);
         INode deletedNode = myLinkedList.popLast();
-
         Assert.assertEquals(myThirdNode,deletedNode);
+
+    }
+
+    @Test
+    public void searchingGivenNode() {
+        MyNode<Integer> myFirstNode = new MyNode<Integer>(56);
+        MyNode<Integer> mySecondNode = new MyNode<Integer>(30);
+        MyNode<Integer> myThirdNode = new MyNode<Integer>(70);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.addAtBottom(myFirstNode);
+        myLinkedList.addAtBottom(mySecondNode);
+        myLinkedList.addAtBottom(myThirdNode);
+        INode result = myLinkedList.searchKey(mySecondNode);
+        myLinkedList.printMyNodes();
+        Assert.assertEquals(mySecondNode,result);
 
     }
 }

@@ -9,7 +9,7 @@ public class MyNode<K> implements INode<K>{
 
     @Override
     public K getKey() {
-        return key;
+        return this.key;
     }
 
     @Override
@@ -18,7 +18,7 @@ public class MyNode<K> implements INode<K>{
     }
 
     public INode getNext() {
-        return next;
+        return this.next;
     }
 
     public void setNext(INode next) {
