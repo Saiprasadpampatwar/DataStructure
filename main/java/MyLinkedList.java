@@ -79,12 +79,11 @@ public class MyLinkedList {
         return tempNode;
     }
 
-    public <K> void delete(K i) {
+    public <K> INode delete(K i) {
         INode tempNode = head, prev = null;
 
         if(tempNode.getKey()==i && tempNode!=null){
             head = tempNode.getNext();
-            return;
         }
         while (tempNode!=null && tempNode.getKey() !=i){
             prev = tempNode;
@@ -92,6 +91,7 @@ public class MyLinkedList {
         }
 
         prev.setNext(tempNode.getNext());
+        return tempNode;
 
 
     }

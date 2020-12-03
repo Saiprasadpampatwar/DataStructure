@@ -124,7 +124,8 @@ public class MyLinkedListTest {
         myLinkedList.addAtBottom(myThirdNode);
         myLinkedList.insert(mySecondNode,myNewNode);
         myLinkedList.printMyNodes();
-        myLinkedList.delete(40);
+        INode deletedNode = myLinkedList.delete(40);
         myLinkedList.printMyNodes();
+        Assert.assertEquals(myNewNode,deletedNode);
     }
 }
