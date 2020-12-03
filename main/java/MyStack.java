@@ -15,7 +15,11 @@ public class MyStack {
         myLinkedList.printMyNodes();
     }
 
-    public INode prak() {
+    public INode peak() {
         return myLinkedList.head;
+    }
+
+    public INode pop() {
+        return myLinkedList.pop();
     }
 }
