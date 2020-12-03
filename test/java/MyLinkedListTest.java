@@ -94,4 +94,21 @@ public class MyLinkedListTest {
         Assert.assertEquals(mySecondNode,result);
 
     }
+
+    @Test
+    public void adding40After30() {
+        MyNode<Integer> myFirstNode = new MyNode<Integer>(56);
+        MyNode<Integer> mySecondNode = new MyNode<Integer>(30);
+        MyNode<Integer> myThirdNode = new MyNode<Integer>(70);
+        MyNode<Integer> myNewNode = new MyNode<Integer>(40);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.addAtBottom(myFirstNode);
+        myLinkedList.addAtBottom(mySecondNode);
+        myLinkedList.addAtBottom(myThirdNode);
+        myLinkedList.insert(mySecondNode,myNewNode);
+        myLinkedList.printMyNodes();
+        boolean result = mySecondNode.getNext().equals(myNewNode);
+        Assert.assertTrue(result);
+
+    }
 }
