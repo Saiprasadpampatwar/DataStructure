@@ -68,8 +68,8 @@ public class MyLinkedList<K extends Comparable<K>> {
     }
 
 
-    public INode searchKey(INode givenNode) {
-        INode tempNode = head;
+    public INode<K> searchKey(INode<K> givenNode) {
+        INode<K> tempNode = head;
         while (tempNode != null && tempNode.getNext() != null) {
             if (tempNode.getKey().equals(givenNode.getKey())) {
                 return tempNode;
@@ -81,7 +81,7 @@ public class MyLinkedList<K extends Comparable<K>> {
 
     public INode<K> searchKey(K key) {
         INode<K> tempNode = head;
-        while (tempNode != null && tempNode.getNext() != null) {
+        while (tempNode != null ) {
             if (tempNode.getKey().equals((K) key)) {
                 return tempNode;
             }
@@ -91,7 +91,7 @@ public class MyLinkedList<K extends Comparable<K>> {
         return null;
     }
 
-    public <K> INode delete(K i) {
+    public  INode<K> delete(K i) {
         INode tempNode = head, prev = null;
 
         if (tempNode.getKey() == i && tempNode != null) {
@@ -101,12 +101,17 @@ public class MyLinkedList<K extends Comparable<K>> {
             prev = tempNode;
             tempNode = tempNode.getNext();
         }
-
-        prev.setNext(tempNode.getNext());
+        if(tempNode!=null) {
+            prev.setNext(tempNode.getNext());
+        }else{
+            return null;
+        }
         return tempNode;
 
 
     }
+
+
 
 
     public void sortedLinkedList(INode<K> newNode) {
