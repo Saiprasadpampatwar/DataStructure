@@ -95,4 +95,14 @@ public class MyLinkedList {
 
 
     }
+
+    public Integer size() {
+        int size = 0;
+        INode temp = head;
+        while (temp!=null){
+            size++;
+            temp = temp.getNext();
+        }
+        return size;
+    }
 }
