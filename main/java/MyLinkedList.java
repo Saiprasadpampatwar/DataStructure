@@ -78,6 +78,17 @@ public class MyLinkedList<K extends Comparable<K>> {
         }
         return tempNode;
     }
+    public INode<K> searchKey(K key) {
+        INode<K> tempNode = head;
+        while (tempNode != null && tempNode.getNext() != null){
+            if(tempNode.getKey().equals((K) key)){
+                return tempNode;
+            }
+
+            tempNode = tempNode.getNext();
+        }
+        return null;
+    }
 
     public <K> INode delete(K i) {
         INode tempNode = head, prev = null;
@@ -116,5 +127,10 @@ public class MyLinkedList<K extends Comparable<K>> {
         }
 
     }
+
+    public String toString(){
+        return "MyLinkedListNodes{"+head+"}";
+    }
+
 
 }
