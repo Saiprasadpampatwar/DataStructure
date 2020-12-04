@@ -1,6 +1,6 @@
 public class MyLinkedList<K extends Comparable<K>> {
-      public INode tail;
-     public INode head;
+    public INode tail;
+    public INode head;
 
     public MyLinkedList() {
         this.head = null;
@@ -8,36 +8,36 @@ public class MyLinkedList<K extends Comparable<K>> {
     }
 
     public void addAtBottom(INode newNode) {
-        if(this.head == null){
+        if (this.head == null) {
             this.head = newNode;
         }
-        if(this.tail == null){
+        if (this.tail == null) {
             this.tail = newNode;
-        }else {
+        } else {
             this.tail.setNext(newNode);
             this.tail = newNode;
         }
     }
 
-    public void addAtTop(INode newNode){
-        if(this.tail == null){
+    public void addAtTop(INode newNode) {
+        if (this.tail == null) {
             this.tail = newNode;
         }
-        if(this.head == null){
+        if (this.head == null) {
             this.head = newNode;
-        }else {
+        } else {
             INode tempNode = this.head;
             this.head = newNode;
             head.setNext(tempNode);
         }
     }
 
-    public void printMyNodes(){
+    public void printMyNodes() {
         StringBuffer myNodes = new StringBuffer("My nodes: ");
         INode tempNode = head;
-        while (tempNode.getNext()!=null){
+        while (tempNode.getNext() != null) {
             myNodes.append(tempNode.getKey());
-            if(!tempNode.equals(tail)) myNodes.append("->");
+            if (!tempNode.equals(tail)) myNodes.append("->");
             tempNode = tempNode.getNext();
         }
         myNodes.append(tempNode.getKey());
@@ -58,7 +58,7 @@ public class MyLinkedList<K extends Comparable<K>> {
 
     public INode popLast() {
         INode tempNode = head;
-        while (!(tempNode.getNext().equals(tail))){
+        while (!(tempNode.getNext().equals(tail))) {
             tempNode = tempNode.getNext();
         }
         this.tail = tempNode;
@@ -70,18 +70,19 @@ public class MyLinkedList<K extends Comparable<K>> {
 
     public INode searchKey(INode givenNode) {
         INode tempNode = head;
-        while (tempNode != null && tempNode.getNext() != null){
-            if(tempNode.getKey().equals(givenNode.getKey())){
+        while (tempNode != null && tempNode.getNext() != null) {
+            if (tempNode.getKey().equals(givenNode.getKey())) {
                 return tempNode;
             }
             tempNode = tempNode.getNext();
         }
         return tempNode;
     }
+
     public INode<K> searchKey(K key) {
         INode<K> tempNode = head;
-        while (tempNode != null && tempNode.getNext() != null){
-            if(tempNode.getKey().equals((K) key)){
+        while (tempNode != null && tempNode.getNext() != null) {
+            if (tempNode.getKey().equals((K) key)) {
                 return tempNode;
             }
 
@@ -93,10 +94,10 @@ public class MyLinkedList<K extends Comparable<K>> {
     public <K> INode delete(K i) {
         INode tempNode = head, prev = null;
 
-        if(tempNode.getKey()==i && tempNode!=null){
+        if (tempNode.getKey() == i && tempNode != null) {
             head = tempNode.getNext();
         }
-        while (tempNode!=null && tempNode.getKey() !=i){
+        while (tempNode != null && tempNode.getKey() != i) {
             prev = tempNode;
             tempNode = tempNode.getNext();
         }
@@ -106,6 +107,7 @@ public class MyLinkedList<K extends Comparable<K>> {
 
 
     }
+
 
     public void sortedLinkedList(INode<K> newNode) {
         INode tempNode = head;
@@ -120,17 +122,26 @@ public class MyLinkedList<K extends Comparable<K>> {
             prevNode.setNext(newNode);
         }
         newNode.setNext(tempNode);
-        tempNode =head;
-        while (tempNode!=null){
-            this.tail=tempNode;
-            tempNode=tempNode.getNext();
+        tempNode = head;
+        while (tempNode != null) {
+            this.tail = tempNode;
+            tempNode = tempNode.getNext();
         }
 
     }
 
-    public String toString(){
-        return "MyLinkedListNodes{"+head+"}";
+    public String toString() {
+        return "MyLinkedListNodes{" + head + "}";
     }
 
 
+    public Integer size() {
+        int size = 0;
+        INode temp = head;
+        while (temp != null) {
+            size++;
+            temp = temp.getNext();
+        }
+        return size;
+    }
 }

@@ -125,7 +125,10 @@ public class MyLinkedListTest {
         myLinkedList.insert(mySecondNode,myNewNode);
         myLinkedList.printMyNodes();
         INode deletedNode = myLinkedList.delete(40);
+        System.out.println("Size of LinkedList is: "+myLinkedList.size());
+        Integer size = myLinkedList.size();
         myLinkedList.printMyNodes();
+        Assert.assertEquals((Integer) 3,size);
         Assert.assertEquals(myNewNode,deletedNode);
     }
 
